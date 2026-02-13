@@ -13,9 +13,11 @@ localStorage.setItem("apexData", JSON.stringify(data));
 
 function loadAdminData(){
 
+
+
+
 var tbody = document.getElementById("adminTable");
 if(!tbody) return;
-
 tbody.innerHTML="";
 
 // Get filter values
@@ -52,10 +54,12 @@ tr.innerHTML =
 "<td>"+safe(row.teacher)+"</td>"+
 "<td>"+safe(row.grade)+"</td>"+
 "<td>"+safe(row.year)+"</td>"+
-"<td>"+safe(row.subject)+"</td>"+
+//"<td>"+safe(row.subject)+"</td>"+
+"<td>"+safe(row.subject).replace(/\n/g, "<br>")+"</td>"+
 "<td>"+safe(row.medium)+"</td>"+
 "<td>"+safe(row.type)+"</td>"+
-"<td>"+safe(row.datetime)+"</td>"+
+//"<td>"+safe(row.datetime)+"</td>"+
+ "<td>"+safe(row.datetime).replace(/\n/g, "<br>")+"</td>"+
 "<td>"+safe(row.classid)+"</td>"+
 "<td>"+safe(row.fee)+"</td>"+
 "<td>"+
@@ -184,10 +188,11 @@ tr.innerHTML =
 "<td>"+safe(row.teacher)+"</td>"+
 "<td>"+safe(row.grade)+"</td>"+
 "<td>"+safe(row.year)+"</td>"+
-"<td>"+safe(row.subject)+"</td>"+
+//"<td>"+safe(row.subject)+"</td>"+
+"<td>"+safe(row.subject).replace(/\n/g, "<br>")+"</td>"+
 "<td>"+safe(row.medium)+"</td>"+
 "<td>"+safe(row.type)+"</td>"+
-"<td>"+safe(row.datetime)+"</td>"+
+"<td>"+safe(row.datetime).replace(/\n/g, "<br>")+"</td>"+
 "<td>"+safe(row.classid)+"</td>"+
 "<td>"+safe(row.fee)+"</td>";
 
@@ -227,3 +232,25 @@ return field.toLowerCase().includes(filter);
 function safe(value){
 return value ? value : "";
 }
+
+
+function checkLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Set your admin username and password here
+    const adminUser = "admin";
+    const adminPass = "Srimal@1994";
+
+    if(username === adminUser && password === adminPass) {
+        document.getElementById('loginOverlay').style.display = 'none';
+        loadAdminData(); // optionally load your table after login
+    } else {
+        document.getElementById('loginError').innerText = "Invalid username or password!";
+    }
+}
+
+// Optional: prevent interaction before login
+document.addEventListener('DOMContentLoaded', () => {
+    loadAdminData = function() {}; // disable loadAdminData until login
+});

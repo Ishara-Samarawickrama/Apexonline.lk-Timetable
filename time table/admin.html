@@ -5,6 +5,29 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="loginOverlay" style="
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+">
+    <div style="
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        width: 300px;
+    ">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username" style="width: 90%; padding: 5px; margin: 5px 0;">
+        <input type="password" id="password" placeholder="Password" style="width: 90%; padding: 5px; margin: 5px 0;">
+        <button onclick="checkLogin()" style="padding: 5px 10px; margin-top: 10px;">Login</button>
+        <p id="loginError" style="color:red; margin-top:10px;"></p>
+    </div>
+</div>
 
 <header>ApexOnline - Admin Panel</header>
 
@@ -47,10 +70,12 @@
 <input type="text" id="teacher" placeholder="Teacher Name" required>
 <input type="text" id="grade" placeholder="Grade" required>
 <input type="text" id="year" placeholder="Exam Year">
-<input type="text" id="subject" placeholder="Subject" required>
+<!--<input type="text" id="subject" placeholder="Subject" required>-->
+<textarea id="subject" placeholder="Subject" rows="4" required></textarea>
 <input type="text" id="medium" placeholder="Medium">
 <input type="text" id="type" placeholder="Type">
-<input type="text" id="datetime" placeholder="Date & Time" required>
+<!--<input type="text" id="datetime" placeholder="Date & Time" required> -->
+<textarea id="datetime" placeholder="Date & Time" rows="4" required></textarea>
 <input type="text" id="classid" placeholder="Class ID">
 <input type="text" id="fee" placeholder="Fee" required>
 
