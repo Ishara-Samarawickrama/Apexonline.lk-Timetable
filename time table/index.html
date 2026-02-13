@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ApexOnline - Class Schedule</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>ApexOnline - Class Schedule</header>
+
+<div class="container">
+
+<h3>Filter Classes</h3>
+
+<select id="categoryFilter" onchange="loadStudentData()">
+<option value="">All Categories</option>
+<option value="AL">AL</option>
+<option value="OL">OL</option>
+<option value="Course">Course</option>
+</select>
+
+<input type="text" id="teacherFilter" placeholder="Teacher Name" onkeyup="loadStudentData()">
+<input type="text" id="gradeFilter" placeholder="Grade" onkeyup="loadStudentData()">
+<input type="text" id="yearFilter" placeholder="Exam Year" onkeyup="loadStudentData()">
+<input type="text" id="subjectFilter" placeholder="Subject" onkeyup="loadStudentData()">
+<input type="text" id="mediumFilter" placeholder="Medium" onkeyup="loadStudentData()">
+<input type="text" id="typeFilter" placeholder="Type" onkeyup="loadStudentData()">
+<input type="text" id="classIdFilter" placeholder="Class ID" onkeyup="loadStudentData()">
+
+<input type="text" id="searchBox" placeholder="Global Search..." onkeyup="loadStudentData()">
+
+<hr>
+
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Teacher</th>
+<th>Grade</th>
+<th>Exam Year</th>
+<th>Subject</th>
+<th>Medium</th>
+<th>Type</th>
+<th>Date & Time</th>
+<th>Class ID</th>
+<th>Fee</th>
+</tr>
+</thead>
+
+<tbody id="studentTable"></tbody>
+
+</table>
+
+</div>
+
+<script src="script.js"></script>
+<script>
+loadStudentData();
+</script>
+
+</body>
+</html>
